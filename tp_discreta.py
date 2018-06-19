@@ -20,14 +20,12 @@ s=int(input("Insira o número de times em cada grupo (S): "))
 
 
 resultado=1
-exist=0
 while(qntTimes>=s):
     resultado*=combinatoria(qntTimes,s)
     qntTimes-=s
-    exist=1
 resultado*=fatorial(k)
 
-if exist==0:
+if qntTimes<k*s:
     resultado=0
 
 
