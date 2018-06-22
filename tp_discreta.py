@@ -8,25 +8,15 @@ def fatorial(n):
     while(n!=0):
         a*=n
         n-=1
-    return a
+    return int(a)
 
-def combinatoria(n,p):
-    return fatorial(n)/(fatorial(n-p)*fatorial(p))
+qntTimes=len(input().split((',')))
+k=int(input())
+s=int(input())
 
-
-qntTimes=len(input("Insira o nome dos times separados por vírgula: ").split((',')))
-k=int(input("Insira o número total de grupos do torneio (K): "))
-s=int(input("Insira o número de times em cada grupo (S): "))
-
-
-resultado=1
-while(qntTimes>=s):
-    resultado*=combinatoria(qntTimes,s)
-    qntTimes-=s
-resultado*=fatorial(k)
-
-if qntTimes<k*s:
+if qntTimes>=k*s:
+    resultado=(fatorial(qntTimes)/((pow(fatorial(s),k))*fatorial(qntTimes-k*s)))*fatorial(k)
+else:
     resultado=0
 
-
-print(resultado)
+print(int(resultado))
